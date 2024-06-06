@@ -5,9 +5,9 @@ function Posts() {
     <div class="app-wrapper">
       <h1 class="app-title">Posts</h1>
       <ul>
-        {data.map((item) => {
+        {data.map((item, index) => {
           const [likeCount, setLikeCount] = useState(0);
-          let likeTotal = likeCount + item.likes;
+          const likeTotal = likeCount + item.likes;
           const handleLike = () => {
             setLikeCount(likeCount + 1);
           };
@@ -19,7 +19,7 @@ function Posts() {
           return (
             <>
               <div class="post-list">
-                <div class="post-item">
+                <div class="post-item" key={index}>
                   <div class="post-header">
                     <h2>
                       {item.title} #{item.id}
